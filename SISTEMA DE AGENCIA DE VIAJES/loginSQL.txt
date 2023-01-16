@@ -1,0 +1,27 @@
+Create database SistemaViajes
+go
+
+use SistemaViajes
+go
+
+create table Usuario
+(
+id_area varchar(5),
+id_empleado varchar(5),
+nombre varchar(50),
+usuario varchar(10),
+contraseña varchar(10)
+);
+
+insert into Usuario values('A0001','E0001','Recepcionista','Rec','Rec')
+
+
+
+create proc sp_logueo_ez
+@usuario varchar(10),
+@clave varchar(10)
+as
+select id_area,nombre,usuario,contraseña from Usuario 
+where usuario=@usuario and contraseña=@clave
+go
+
